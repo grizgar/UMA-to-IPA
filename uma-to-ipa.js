@@ -1,3 +1,4 @@
+//define the variable/arrray(?) correspondences 
 let correspondences = [
     {
       "UMA": "p",
@@ -169,24 +170,28 @@ let correspondences = [
     }
   ]
 
-let transcribe = text => {
+//define the function 'transcribe' using a for loop. tell it to search for 2 characters at a time or one letter within the UMA portion, return corresponding IPA, 
+  let transcribe = text => {
     let output = ''
     for (let index = 0; index < text.length; index++) {
         let letter = text[index]
         let selection = letter+text[index+1]
-        // console.log(letter+text[index+1])
+        // console.log(letter+text[index+1]) index for letter+the next symbol = selection (2 characters)
         // console.log(text[index+1])
         // gets 2 characters at a time
         if (correspondences.find(pair => pair["UMA"] === selection)) {
+          //find the selection of 2 characters in UMA, and if found, output their corresponding IPA characters
             output += correspondences.find(pair => pair["UMA"] === selection["IPA"])
             console.log(correspondences.find(pair => pair["UMA"] === selection["IPA"]))
         }
         else {
+          //if the selection of 2 characters doesn't return anything, check for one UMA symbol and output that IPA correspondence
             output += correspondences.find(pair => pair["UMA"] === letter["IPA"])
             console.log(correspondences.find(pair => pair["UMA"] === letter["IPA"]))
 
         }
     }
+    //check the document for the first corresponding IPA value and print it 
     document.querySelector("#transcription-output").value = output
 }
 

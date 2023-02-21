@@ -1,4 +1,4 @@
-//define the variable/arrray(?) correspondences 
+//define the arrray via JSON correspondences 
 let correspondences = [
     {
       "UMA": "p",
@@ -88,6 +88,7 @@ let correspondences = [
       "UMA": "y",
       "IPA": "j"
     },
+    //figure out how to treat vowels, make one OR the other or add a selection menu from the beginning to indicate which notation they're using, from the community or from sources//
     {
       "UMA": "ä",
       "IPA": "a"
